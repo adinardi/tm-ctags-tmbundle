@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>"$TM_BUNDLE_SUPPORT/bin/tmctags.rb" find</string>
+	<string>"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/tmctags.rb" find</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>

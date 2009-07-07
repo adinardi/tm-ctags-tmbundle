@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>"$TM_BUNDLE_SUPPORT/bin/tmctags.rb" complete2</string>
+	<string>"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/tmctags.rb" complete2</string>
 	<key>fallbackInput</key>
 	<string>word</string>
 	<key>input</key>
