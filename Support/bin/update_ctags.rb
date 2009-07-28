@@ -2,6 +2,7 @@
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/textmate.rb'
 require ENV['TM_SUPPORT_PATH'] + '/lib/progress.rb'
+require ENV['TM_SUPPORT_PATH'] + '/lib/tm/detach.rb'
 
 # supporting old var for now
 ENV['TM_CTAGS_EXT_LIB'] ||= ENV['TM_CTAGS_EXTRA_LIB']
@@ -69,7 +70,11 @@ ctags_bin = ENV['TM_BUNDLE_SUPPORT'] + '/bin/ctags'
   
 Dir.chdir(dir)
 
-TextMate.call_with_progress( :title => "TM Ctags", :message => "Tagging your project…", :indeterminate => true ) do
-  result = `#{filter}"#{ctags_bin}" #{args.join(' ')}`
-  puts "All done."
+# TextMate.call_with_progress( :title => "TM Ctags", :message => "Tagging your project…", :indeterminate => true ) do
+#   result = `#{filter}"#{ctags_bin}" #{args.join(' ')}`
+#   puts "All done."
+# end
+TextMate.detach do
+    `#{filter}"#{ctags_bin}" #{args.join(' ')}`
+    TextMate::UI.tool_tip("Done Indexing")
 end
