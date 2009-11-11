@@ -18,7 +18,7 @@ module TM_Ctags
       signature = name
     end
     
-    overview = "#{type} #{signature} — #{file}"
+    overview = "#{type} #{signature} — #{path}"
     
     hit = {}
     
